@@ -1,0 +1,30 @@
+## docker 
+
+## run a container
+docker run -ti ubuntu bash
+
+## install 7z
+apt update && apt install p7zip-full
+
+## run benchmark
+7z b 
+
+## print CPU info
+cat /proc/cpuinfo
+
+
+
+docker inspect IMAGE 
+
+docker save -o kthsrv.tar IMAGE 
+
+
+docker build -f multi.Dockerfile -t srvmulti .
+
+kubectl create deployment srv --image=gcr.io/kth-demo-22/kth-demo-22
+
+kubectl expose deploy srv --port=8080 --target-port=8080
+
+kubectl run busybox --rm --image=busybox -it --restart=Never -- sh 
+
+wget -qO- "http://$IP:8080/test/kth/demo"
