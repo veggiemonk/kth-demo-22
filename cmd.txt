@@ -21,6 +21,10 @@ docker save -o kthsrv.tar IMAGE
 
 docker build -f multi.Dockerfile -t srvmulti .
 
+docker tag srvmulti gcr.io/kth-demo-22/kth-demo-22
+
+docker push gcr.io/kth-demo-22/kth-demo-22
+
 kubectl create deployment srv --image=gcr.io/kth-demo-22/kth-demo-22
 
 kubectl expose deploy srv --port=8080 --target-port=8080
