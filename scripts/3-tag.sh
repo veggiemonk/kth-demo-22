@@ -16,4 +16,8 @@ docker tag srvmulti "$IMG"
 echo "$IMG" > _IMG
 echo "$TAG" > _TAG
 
+echo 
+echo 
+echo 
+
 docker images

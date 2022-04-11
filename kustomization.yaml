@@ -16,7 +16,9 @@ patches:
 
 
 
-
+#
+# In line patch
+#
   # - patch: |-
   #     apiVersion: apps/v1
   #     kind: Deployment
@@ -56,6 +58,9 @@ patches:
   #                   fieldRef:
   #                     fieldPath: spec.serviceAccountName
                 
+#
+# Set image
+#
 
 # images:
 # - name: image-srv
