@@ -36,9 +36,9 @@ func main() {
 func getEnvInfo() string {
 	nodeName := os.Getenv("MY_NODE_NAME")
 	podName := os.Getenv("MY_POD_NAME")
-	namespace := os.Getenv("MY_NAMESPACE")
-	ip := os.Getenv("MY_IP")
-	svc := os.Getenv("MY_SERVICE_ACCOUNT")
+	namespace := os.Getenv("MY_POD_NAMESPACE")
+	ip := os.Getenv("MY_POD_IP")
+	svc := os.Getenv("MY_POD_SERVICE_ACCOUNT")
 	tmpl := " node: %s\n pod: %s\n namespace: %s\n IP: %s\n service account: %s\n"
 	return fmt.Sprintf(tmpl, nodeName, podName, namespace, ip, svc)
 }

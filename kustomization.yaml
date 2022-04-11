@@ -1,0 +1,63 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - deployment.yaml
+  - service.yaml
+
+labels:
+  - pairs:
+      app: srv
+      demo: kth
+      year: "2022"
+
+patches:
+  - path: patch.yaml
+
+
+
+
+  # - patch: |-
+  #     apiVersion: apps/v1
+  #     kind: Deployment
+  #     metadata:
+  #       name: srv
+  #     spec:
+  #       template:
+  #         spec:
+  #           containers:
+  #             - name: srv
+  #               resources: 
+  #                 requests:
+  #                   memory: "32Mi"
+  #                   cpu: "125m"
+  #                 limits:
+  #                   memory: "64Mi"
+  #                   cpu: "250m"
+  #               env:
+  #               - name: MY_NODE_NAME
+  #                 valueFrom:
+  #                   fieldRef:
+  #                     fieldPath: spec.nodeName
+  #               - name: MY_POD_NAME
+  #                 valueFrom:
+  #                   fieldRef:
+  #                     fieldPath: metadata.name
+  #               - name: MY_POD_NAMESPACE
+  #                 valueFrom:
+  #                   fieldRef:
+  #                     fieldPath: metadata.namespace
+  #               - name: MY_POD_IP
+  #                 valueFrom:
+  #                   fieldRef:
+  #                     fieldPath: status.podIP
+  #               - name: MY_POD_SERVICE_ACCOUNT
+  #                 valueFrom:
+  #                   fieldRef:
+  #                     fieldPath: spec.serviceAccountName
+                
+
+# images:
+# - name: image-srv
+#   newName: gcr.io/kth-demo-22/srv
+#   newTag: NEW_TAG

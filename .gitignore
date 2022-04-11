@@ -1,5 +1,12 @@
 srv
 
+_*
+
+manifest.yaml
+deployment.yaml
+service.yaml
+final.yaml
+
 # Binaries for programs and plugins
 *.exe
 *.exe~

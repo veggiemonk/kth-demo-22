@@ -7,7 +7,13 @@ pushd "$ROOT_DIR" || { echo "could not change to root directory: $ROOT_DIR"; exi
 echo "$GOOGLE_CLOUD_PROJECT"
 
 SHORT_SHA=$(git rev-parse --short HEAD)
-DATE=$(date +"%y%m%d%H%M")
+DATE=$(date +"%y%m%d")
 TAG="$DATE-$SHORT_SHA"
+IMG="gcr.io/$GOOGLE_CLOUD_PROJECT/srv:$TAG"
 
-docker tag srvmulti "gcr.io/$GOOGLE_CLOUD_PROJECT/srv:$TAG"
+docker tag srvmulti "$IMG"
+
+echo "$IMG" > _IMG
+echo "$TAG" > _TAG
+
+docker images
