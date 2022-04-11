@@ -6,9 +6,10 @@ pushd "$ROOT_DIR" || { echo "could not change to root directory: $ROOT_DIR"; exi
 
 docker rmi -f $(docker images -q) || true
 
-kubectl delete -f ./final.yaml
+kubectl delete -f ./final.yaml || true
 
 rm -f deployment.yaml
 rm -f service.yaml
 rm -f final.yaml
 rm -f srv
+rm -f _IMG _TAG
